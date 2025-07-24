@@ -9,8 +9,9 @@
 | CPU                     | Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)                |
 | GPU                     | Adreno 619                                                                     |
 | Memory                  | 8 GB                                                                           |
-| Shipped Android Version | 12.0 (MIUI 13)                                                                 |
-| Storage                 | 256 GB eMMC                                                                    |
+| Shipped Android Version | 12.0 (MIUI 13) (moonstone/sunstone)                                                                |
+| Shipped Android Version | 11.0 (MIUI 13) (veux/peux)                                                     |
+| Storage                 | 128/256 GB UFS                                                                    |
 | SIM                     | Dual SIM (Nano-SIM, dual stand-by)                                             |
 | Battery                 | Li-Po 5000 mAh, non-removable                                                  |
 | Dimensions              | 165.9 x 76.2 x 8 mm (6.53 x 3.00 x 0.31 in)                                    |
