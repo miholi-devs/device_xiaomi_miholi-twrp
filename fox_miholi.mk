@@ -35,6 +35,7 @@ OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 OF_QUICK_BACKUP_LIST := /boot;/data;
 OF_ENABLE_LPTOOLS := 1
 OF_MAINTAINER := Kristoforusapm
+FOX_MAINTAINER := Kristoforusapm
 # maximum permissible splash image size (in kilobytes); do *NOT* increase!
 OF_SPLASH_MAX_SIZE := 130
 
