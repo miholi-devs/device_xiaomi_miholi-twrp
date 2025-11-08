@@ -50,7 +50,7 @@ void model_property_override(const std::string& device, const std::string& model
     property_override("ro.product.system_ext.model", model);
 }
 
-void vendor_load_properties() {
+/*void vendor_load_properties() {
     const std::string hwc = GetProperty("ro.boot.hwc", "");
     if (hwc == "CN") {
         model_property_override("sunstone", "Redmi Note 12R Pro");
@@ -58,5 +58,31 @@ void vendor_load_properties() {
         model_property_override("moonstone", "POCO X5 5G");
     } else {
         model_property_override("sunstone", "Redmi Note 12 5G");
+    }
+}*/
+
+void vendor_load_properties() {
+    const std::string hwc = GetProperty("ro.boot.product.hardware.sku", "");
+    const std::string hwd = GetProperty("ro.boot.board_id", "");
+    if (hwc == "sunstone_global") {
+        model_property_override("sunstone", "Redmi Note 12 5G");
+    } else if (hwc == "moonstone_p_global" || "moonstone_p_in")  {
+        model_property_override("moonstone", "POCO X5 5G");
+    } else {
+        model_property_override("sunstone", "Redmi Note 12R Pro 5G");
+    }
+
+    if(hwd == "S88006AA1") {
+        model_property_override("veux", "Redmi Note 11 Pro 5G");
+    } else if (hwd == "S88007AA1") {
+        model_property_override("veux", "Redmi Note 11E Pro");
+    } else if (hwd == "S88007EA1") {
+        model_property_override("peux", "Redmi Note 11 Pro+ 5G");
+    } else if (hwd == "S88008BA1") {
+        model_property_override("veux", "Redmi Note 11 Pro 5G JP");
+    } else if (hwd == "S88106BA1") {
+        model_property_override("veux", "POCO X4 Pro 5G");
+    } else if(hwd == "S88107BA1") {
+        model_property_override("peux", "POCO X4 Pro 5G");
     }
 }
