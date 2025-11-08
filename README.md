@@ -25,4 +25,4 @@
 
 ## Device picture
 
-![Xiaomi 12 Lite ](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-5g-1.jpg)
+![POCO X5 5G](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-5g-1.jpg)
