@@ -55,42 +55,40 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno619
 QCOM_BOARD_PLATFORMS += xiaomi_sm6375
 
 # Kernel
-VENDOR_CMDLINE := "androidboot.hardware=qcom \
-                   androidboot.memcg=1 \
-		   androidboot.selinux=permissive \
-                   androidboot.usbcontroller=4e00000.dwc3 \
-                   cgroup.memory=nokmem,nosocket \
-                   loop.max_part=7 \
-                   msm_rtb.filter=0x237 \
-                   service_locator.enable=1 \
-                   swiotlb=0 \
-                   pcie_ports=compat \
-                   iptable_raw.raw_before_defrag=1 \
-                   ip6table_raw.raw_before_defrag=1 \
-                   androidboot.init_fatal_reboot_target=recovery"
-
-BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_BOOT_HEADER_VERSION := 3
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/moonstone/kernel
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_SEPARATED_DTBO := true
 
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --vendor_cmdline $(VENDOR_CMDLINE)
-BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE) --board ""
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_RAMDISK_USE_LZ4 := true
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+
+BOARD_KERNEL_CMDLINE := \
+    androidboot.hardware=qcom \
+    lpm_levels.sleep_disabled=1 \
+    service_locator.enable=1 \
+    androidboot.usbcontroller=4e00000.dwc3 \
+    swiotlb=noforce \
+    loop.max_part=7 \
+    iptable_raw.raw_before_defrag=1 \
+    ip6table_raw.raw_before_defrag=1 \
+    firmware_class.path=/vendor/firmware \
+    ignore_builtin_recovery \
+    audit=0
 
 # BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/moonstone/dtb
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+TARGET_PREBUILT_DTB := 
+BOARD_MKBOOTIMG_ARGS += 
 
-# Kenel dtbo
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/moonstone/dtbo.img
 
 #A/B
-BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := false
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 AB_OTA_UPDATER := true
 
