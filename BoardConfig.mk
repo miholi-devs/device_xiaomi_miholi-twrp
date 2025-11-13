@@ -85,7 +85,6 @@ BOARD_MKBOOTIMG_ARGS +=
 
 
 #A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 BOARD_USES_RECOVERY_AS_BOOT := false
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
